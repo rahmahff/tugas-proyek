@@ -31,11 +31,11 @@ def create_byhour_df(df):
    
     return byhour_df
 
-all_df = pd.read_csv("https://raw.githubusercontent.com/rahmahff/tugas-proyek/refs/heads/main/Dashboard/main_data.csv")
+all_df = pd.read_csv("/tugas-proyek/refs/heads/main/Dashboard/main_data.csv")
  
 #Proses membuat sidebar dengan menambahkan foto dan teks
 with st.sidebar:
-    st.image("bike-sharing.png")
+    st.image("/tugas-proyek/refs/heads/main/Dashboard/bike-sharing.png")
     if st.button('Tentang Bike Sharing Company'):
         st.text("Bike Sharing Company adalah perusahaan yang menyediakan jasa penyewaan sepeda. "
         "Anda dapat melihat langsung performa serta nilai terbanyak dan terendah dalam penyewaan sepeda dalam setiap bulan dan jam.")
