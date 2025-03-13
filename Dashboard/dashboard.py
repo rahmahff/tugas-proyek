@@ -35,7 +35,7 @@ all_df = pd.read_csv("https://raw.githubusercontent.com/rahmahff/tugas-proyek/re
  
 #Proses membuat sidebar dengan menambahkan foto dan teks
 with st.sidebar:
-    st.image("https://github.com/rahmahff/tugas-proyek/raw/main/Dashboard/bike-sharing.png")
+    st.image("https://raw.githubusercontent.com/rahmahff/tugas-proyek/refs/heads/main/Dashboard/bike-sharing.png")
     if st.button('Tentang Bike Sharing Company'):
         st.text("Bike Sharing Company adalah perusahaan yang menyediakan jasa penyewaan sepeda. "
         "Anda dapat melihat langsung performa serta nilai terbanyak dan terendah dalam penyewaan sepeda dalam setiap bulan dan jam.")
