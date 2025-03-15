@@ -3,13 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+
 sns.set(style='dark')
 
 # Membuat dataframe yang dibutuhkan 
-# Untuk mengetahui performa data pada pertanyaan 1 yang ditampilkan pada tahun 2012 karena memiliki performa yang bagus dan signifikan
-def create_monthbikesharing1_df(df):
-    # Proses untuk melakukan filter data pada tahun 2012
-    filteryear2_df = df[df["yr_x"] == 1]
+# Untuk mengetahui performa data pada pertanyaan 1 
+def create_monthbikesharing1_df(df, year):
+    # Proses untuk melakukan filter data berdasarkan tahun
+    filteryear2_df = df[df["yr_x"] == year]
     monthbikesharing_df = filteryear2_df.groupby(by="mnth_x").agg({
         "casual_x": "sum",
         "registered_x": "sum",
@@ -31,21 +32,20 @@ def create_byhour_df(df):
    
     return byhour_df
 
-all_df = pd.read_csv("https://raw.githubusercontent.com/rahmahff/tugas-proyek/refs/heads/main/Dashboard/main_data.csv")
+all_df = pd.read_csv("main_data.csv")
  
 #Proses membuat sidebar dengan menambahkan foto dan teks
 with st.sidebar:
-    st.image("https://raw.githubusercontent.com/rahmahff/tugas-proyek/refs/heads/main/Dashboard/bike-sharing.png")
-    if st.button('Tentang Bike Sharing Company'):
-        st.text("Bike Sharing Company adalah perusahaan yang menyediakan jasa penyewaan sepeda. "
-        "Anda dapat melihat langsung performa serta nilai terbanyak dan terendah dalam penyewaan sepeda dalam setiap bulan dan jam.")
-        if st.button('Berhenti Menampilkan'):
-            st.stop()
+    st.image("bike-sharing.png")
+    year = st.selectbox('Pilih Tahun Performa Sewa Sepeda:', ('2011', '2012'))
+    st.write('Tahun:', year)
+
+select_year = 0 if year == '2011' else 1
 
 main_df = all_df
 
 #Menyiapkan berbagai dataframe
-day_df = create_monthbikesharing1_df(main_df)
+day_df = create_monthbikesharing1_df(main_df, select_year)
 hour_df = create_byhour_df(main_df)
 
 #Membuat tulisan header dan subheader pada halaman dashboard
@@ -61,11 +61,11 @@ fig, ax = plt.subplots(figsize=(16, 8))
 ax.plot(
     day_sort_df["mnth_x"], 
     day_sort_df["cnt_x"], 
-    label="Tahun 2012", 
+    label=f"Tahun {year}", 
     marker='o',
 )
 
-ax.set_title("Jumlah Pengguna berdasarkan Bulan Tahun 2012", loc="center", fontsize=50)
+ax.set_title(f"Jumlah Pengguna berdasarkan Bulan Tahun {year}", loc="center", fontsize=50)
 ax.tick_params(axis='y', labelsize=20)
 ax.tick_params(axis='x', labelsize=15)
 ax.legend()
