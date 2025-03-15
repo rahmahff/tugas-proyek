@@ -2,11 +2,15 @@
 
 ## Proses Persiapan
 - Buka halaman Github
-- Unduh aplikasi melalui [tautan Github] ()
+- Unduh aplikasi melalui [tautan Github](https://github.com/rahmahff/tugas-proyek)
 
 ## Setup Environment - Shell/Terminal
 - Buka **Command Prompt**
-- Lakukan instalasi untuk library yang digunakan:
+- Masuk ke dalam folder proyek
+```
+cd tugas-proyek-analisis
+```
+- Lakukan instalasi untuk library yang akan digunakan:
 ```
 pip install -r requirements.txt
 ```
@@ -14,6 +18,7 @@ pip install -r requirements.txt
 ## Run streamlit app
 Proses untuk menjalankan aplikasi streamlit:
 - Masuk ke dalam Tools Editor (contoh: Visual Studio Code)
+- Masuk ke dalam folder yang telah diunduh
 - Pilih **New Terminal** pada Visual Studio Code
 - Masukkan nama folder untuk menjalankannya:
 ```
