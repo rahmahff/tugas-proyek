@@ -8,9 +8,9 @@ sns.set(style='dark')
 
 # Membuat dataframe yang dibutuhkan 
 # Untuk mengetahui performa data pada pertanyaan 1 
-def create_monthbikesharing1_df(df, year):
+def create_monthbikesharing1_df(df, yr):
     # Proses untuk melakukan filter data berdasarkan tahun
-    filteryear2_df = df[df["yr_x"] == year]
+    filteryear2_df = df[df["yr_x"] == yr]
     monthbikesharing_df = filteryear2_df.groupby(by="mnth_x").agg({
         "casual_x": "sum",
         "registered_x": "sum",
@@ -40,12 +40,15 @@ with st.sidebar:
     year = st.selectbox('Pilih Tahun Performa Sewa Sepeda:', ('2011', '2012'))
     st.write('Tahun:', year)
 
-select_year = 0 if year == '2011' else 1
+if year == '2011':
+    yr = 0
+else:
+    yr = 1
 
 main_df = all_df
 
 #Menyiapkan berbagai dataframe
-day_df = create_monthbikesharing1_df(main_df, select_year)
+day_df = create_monthbikesharing1_df(main_df, yr)
 hour_df = create_byhour_df(main_df)
 
 #Membuat tulisan header dan subheader pada halaman dashboard
