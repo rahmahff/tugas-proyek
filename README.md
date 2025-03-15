@@ -8,7 +8,7 @@
 - Buka **Command Prompt**
 - Masuk ke dalam folder proyek
 ```
-cd tugas-proyek-analisis
+cd tugas-proyek
 ```
 - Lakukan instalasi untuk library yang akan digunakan:
 ```
