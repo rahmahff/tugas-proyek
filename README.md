@@ -2,11 +2,12 @@
 
 ## Proses Persiapan
 - Buka halaman Github
-- Unduh aplikasi melalui [tautan Github](https://github.com/rahmahff/tugas-proyek)
+- Unduh proyek melalui [tautan Github](https://github.com/rahmahff/tugas-proyek)
+- Unduh proyek sebagai file .zip dan lakukan **Extract all**
 
 ## Setup Environment - Shell/Terminal
 - Buka **Command Prompt**
-- Masuk ke dalam folder proyek
+- Masuk ke dalam folder proyek:
 ```
 cd tugas-proyek-main
 ```
