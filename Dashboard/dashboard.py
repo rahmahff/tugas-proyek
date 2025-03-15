@@ -32,11 +32,11 @@ def create_byhour_df(df):
    
     return byhour_df
 
-all_df = pd.read_csv("main_data.csv")
+all_df = pd.read_csv("https://raw.githubusercontent.com/rahmahff/tugas-proyek/refs/heads/main/Dashboard/main_data.csv")
  
 #Proses membuat sidebar dengan menambahkan foto dan teks
 with st.sidebar:
-    st.image("bike-sharing.png")
+    st.image("https://raw.githubusercontent.com/rahmahff/tugas-proyek/refs/heads/main/Dashboard/bike-sharing.png")
     year = st.selectbox('Pilih Tahun Performa Sewa Sepeda:', ('2011', '2012'))
     st.write('Tahun:', year)
 
